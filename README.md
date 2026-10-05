@@ -71,37 +71,20 @@ To implement External Interrupt and Timer Interrupt using an Arduino UNO and obs
 
 # Program
 ```
-
-volatile bool buttonState = false;
-
-void externalInterrupt() {
-  buttonState = true;
-}
-
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, LOW);
-
-  // D2 is the external interrupt pin
   pinMode(2, INPUT_PULLUP);
-
-  // Trigger when D2 changes from HIGH to LOW
-  attachInterrupt(
-    digitalPinToInterrupt(2),
-    externalInterrupt,
-    FALLING
-  );
 }
 
 void loop() {
-
   if (digitalRead(2) == LOW) {
     digitalWrite(LED_BUILTIN, HIGH);
-  } 
+  }
   else {
     digitalWrite(LED_BUILTIN, LOW);
   }
 }
+
 ```
 ---
 # OUTPUT
